@@ -96,4 +96,11 @@ default['apache']['www_dir'] = "/var/www/"
 
 
 ### Section 3: Virtual Hosts
-
+## NameVirtualHost
+default['apache']['name_virtual_host'] = "*:80"
+## NameVirtualHost
+default['apache']['virtual_host']['server_admin'] = "webmaster@dummy-host.example.com"
+default['apache']['virtual_host']['documnet_root'] = "/www/docs/dummy-host.example.com"
+default['apache']['virtual_host']['server_name'] = "dummy-host.example.com"
+default['apache']['virtual_host']['error_log'] = "logs/dummy-host.example.com-error_log"
+default['apache']['virtual_host']['custom_log'] = "logs/dummy-host.example.com-access_log common"
