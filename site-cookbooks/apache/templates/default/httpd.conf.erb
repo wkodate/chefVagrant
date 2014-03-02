@@ -548,9 +548,9 @@ ServerSignature On
 # We include the /icons/ alias for FancyIndexed directory listings.  If you
 # do not use FancyIndexing, you may comment this out.
 #
-Alias /icons/ "<%= node['apache']['www_dir'] %>icons/"
+Alias /icons/ <%= node['apache']['www_dir'] %>icons/
 
-<Directory "<%= node['apache']['www_dir'] %>icons">
+<Directory <%= node['apache']['www_dir'] %>icons>
     Options Indexes MultiViews FollowSymLinks
     AllowOverride None
     Order allow,deny
@@ -573,13 +573,13 @@ Alias /icons/ "<%= node['apache']['www_dir'] %>icons/"
 # The same rules about trailing "/" apply to ScriptAlias directives as to
 # Alias.
 #
-ScriptAlias /cgi-bin/ "<%= node['apache']['www_dir'] %>cgi-bin/"
+ScriptAlias /cgi-bin/ <%= node['apache']['www_dir'] %>cgi-bin/
 
 #
 # "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
 # CGI directory exists, if you have that configured.
 #
-<Directory "<%= node['apache']['www_dir'] %>cgi-bin">
+<Directory <%= node['apache']['www_dir'] %>cgi-bin>
     AllowOverride None
     Options None
     Order allow,deny
@@ -756,7 +756,7 @@ ForceLanguagePriority Prefer Fallback
 # in HTML content to override this choice, comment out this
 # directive:
 #
-AddDefaultCharset UTF-8
+AddDefaultCharset <%= node['apache']['add_default_charset'] %>
 
 #
 # AddType allows you to add to or override the MIME configuration
@@ -852,11 +852,11 @@ AddOutputFilter INCLUDES .shtml
 # copying them to /your/include/path/, even on a per-VirtualHost basis.
 #
 
-Alias /error/ "<%= node['apache']['www_dir'] %>error/"
+Alias /error/ <%= node['apache']['www_dir'] %>error/
 
 <IfModule mod_negotiation.c>
 <IfModule mod_include.c>
-    <Directory "<%= node['apache']['www_dir'] %>error">
+    <Directory <%= node['apache']['www_dir'] %>error>
         AllowOverride None
         Options IncludesNoExec
         AddOutputFilter Includes html

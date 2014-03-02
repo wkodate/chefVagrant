@@ -1,4 +1,7 @@
+default['apache']['version'] = "httpd-2.4.7"
+
 default['apache']['install_user'] = "root"
+
 default['apache']['install_group'] = "root"
 
 default['apache']['dir'] = "/etc/httpd/"
@@ -10,9 +13,6 @@ default['apache']['include_files']  = [
 ]
 
 ### Section 1: Global Environment
-## Version
-default['apache']['version'] = "httpd-2.4.7"
-
 ## ServerRoot
 default['apache']['server_root'] = "/etc/httpd"
 
@@ -93,6 +93,9 @@ default['apache']['access_log'] = "logs/access_log"
 
 # wwwDirectory
 default['apache']['www_dir'] = "/var/www/"
+
+# AddDefaultCharset
+default['apache']['add_default_charset'] = "UTF-8"
 
 
 ### Section 3: Virtual Hosts
